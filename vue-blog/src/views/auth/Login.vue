@@ -34,11 +34,11 @@ export default {
   methods: {
     onSubmit() {
       const formData = {
-        // const secretKey = JSON.parse(localStorage.getItem('user')).secretKey
         name: this.name,
         password: this.password,
       };
       console.log(formData);
+      // const secretKey = JSON.parse(localStorage.getItem('user')).secretKey;
       axios
         .post('http://167.99.138.67:1111/login', formData)
         .then((res) => {
@@ -46,9 +46,13 @@ export default {
             'user',
             JSON.stringify({ name: this.name, secretKey: res.data.secretKey })
           );
+          if (localStorage.getItem('user')) {
+            this.$router.push('/create-post');
+          } else {
+            console.log('Unauthorized');
+          }
         })
         .catch((err) => console.log(err));
-      this.$router.push('/create-post');
     },
     onReset() {
       // event.preventDefault();
@@ -84,6 +88,6 @@ button:hover {
   border: rgb(206, 94, 19);
 }
 h5 {
-    font-family: 'Limelight', cursive;
+  font-family: 'Limelight', cursive;
 }
 </style>
