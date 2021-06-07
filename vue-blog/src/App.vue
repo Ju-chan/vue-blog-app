@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div :style="backImage" id="app">
     <div id="nav">
       <p class="logo-title">The Blog</p>
       <div>
@@ -17,7 +17,12 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      backImage: {
+        backgroundImage:
+          'url(https://wildfreedesign.com/wp-content/uploads/2015/11/bigstock-Laptop-computer-and-coffee-in-86943893.jpg)',
+      },
+    };
   },
 };
 </script>
@@ -34,6 +39,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #nav {
@@ -49,7 +57,7 @@ export default {
     rgba(253, 79, 43, 1) 46%,
     rgba(252, 176, 69, 1) 69%
   );
-  height: 10%;
+  height: 20vh;
   color: white;
 }
 #nav div {

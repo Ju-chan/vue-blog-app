@@ -1,6 +1,7 @@
 <template>
   <div>
     <form @submit.prevent="onSubmit">
+      <p class="msg">{{ message }}</p>
       <h5>Allready have an account?</h5>
       <label for="name">Enter your name</label>
       <div class="input">
@@ -27,6 +28,7 @@ export default {
         name: '',
         password: '',
       },
+      message: '',
 
       show: true,
     };
@@ -46,10 +48,11 @@ export default {
             'user',
             JSON.stringify({ name: this.name, secretKey: res.data.secretKey })
           );
-          if (localStorage.getItem('user')) {
+
+          if (this.secretKey && res.data.message == 'Logged in sucessfully') {
             this.$router.push('/create-post');
-          } else {
-            console.log('Unauthorized');
+          } else if (!this.secretKey) {
+            this.message = res.data.message;
           }
         })
         .catch((err) => console.log(err));
@@ -70,8 +73,11 @@ export default {
 </script>
 <style scoped>
 form {
-  max-width: 50%;
+  max-width: 30%;
   margin: 20px auto;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: white;
 }
 input {
   max-width: 400px;
@@ -89,5 +95,13 @@ button:hover {
 }
 h5 {
   font-family: 'Limelight', cursive;
+}
+.msg {
+  background-color: rgb(230, 128, 61);
+  border-radius: 5px;
+  margin: 10px auto;
+  width: 200px;
+  color: white;
+  font-weight: 600;
 }
 </style>

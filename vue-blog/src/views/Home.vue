@@ -1,5 +1,10 @@
 <template>
-  <div :style="backImage" class="home"></div>
+  <div class="home">
+    <h1>Wellcome to the Blog</h1>
+    <p class="home-text">
+      Here you will find exciting stories or can share some of your own
+    </p>
+  </div>
 </template>
 
 <script>
@@ -8,22 +13,27 @@
 export default {
   name: 'Home',
   data() {
-    return {
-      backImage: {
-        backgroundImage:
-          'url(https://wildfreedesign.com/wp-content/uploads/2015/11/bigstock-Laptop-computer-and-coffee-in-86943893.jpg)',
-      },
-    };
+    return {};
   },
   components: {},
 };
 </script>
 
 <style scoped>
-.home {
-  width: 100vw;
-  height: 100vh;
-  background-repeat: no-repeat;
-  background-size: cover;
+h1 {
+  color: white;
+  font-family: 'Limelight', cursive;
+  font-size: 54px;
+  padding: 20px 0;
+}
+.home-text {
+  color: rgb(112, 11, 11);
+  font-family: 'Limelight', cursive;
+  font-size: 25px;
+  font-weight: 700;
+  padding: 40px 0;
+  font-weight: 700;
+  max-width: 30%;
+  margin: auto;
 }
 </style>
