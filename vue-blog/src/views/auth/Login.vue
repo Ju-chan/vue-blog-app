@@ -49,9 +49,9 @@ export default {
             JSON.stringify({ name: this.name, secretKey: res.data.secretKey })
           );
 
-          if (this.secretKey && res.data.message == 'Logged in sucessfully') {
+          if (res.data.success) {
             this.$router.push('/create-post');
-          } else if (!this.secretKey) {
+          } else {
             this.message = res.data.message;
           }
         })
@@ -73,7 +73,7 @@ export default {
 </script>
 <style scoped>
 form {
-  max-width: 30%;
+  max-width: 400px;
   margin: 20px auto;
   padding: 10px;
   border-radius: 15px;
@@ -100,7 +100,7 @@ h5 {
   background-color: rgb(230, 128, 61);
   border-radius: 5px;
   margin: 10px auto;
-  width: 200px;
+  max-width: 200px;
   color: white;
   font-weight: 600;
 }

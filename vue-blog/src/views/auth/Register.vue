@@ -98,7 +98,7 @@ export default {
 </script>
 <style scoped>
 form {
-  max-width: 30%;
+  max-width: 400px;
   margin: 20px auto;
   padding: 10px;
   border-radius: 15px;
