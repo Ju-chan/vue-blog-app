@@ -38,10 +38,16 @@ export default {
 h1 {
   font-family: 'Limelight', cursive;
   color: white;
-  max-width: 60%;
+}
+h3 {
+  font-weight: 700;
+  max-width: 80%;
+  text-align: center;
+  margin: auto;
 }
 h6 {
   font-weight: 8;
+  font-weight: 800;
 }
 img {
   width: 600px;

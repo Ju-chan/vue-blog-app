@@ -1,7 +1,7 @@
 <template>
-  <div :style="backImage" id="app">
+  <div :style="backImage" id="app" class="fade-in-image">
     <div id="nav">
-      <p class="logo-title">The Blog</p>
+      <p @click="returnToHome()" class="logo-title">The Blog</p>
       <div>
         <router-link class="nav-item" to="/">Home</router-link>
         <router-link class="nav-item" to="/register">Register</router-link>
@@ -23,6 +23,11 @@ export default {
           'url(https://wildfreedesign.com/wp-content/uploads/2015/11/bigstock-Laptop-computer-and-coffee-in-86943893.jpg)',
       },
     };
+  },
+  methods: {
+    returnToHome() {
+      this.$router.push('/');
+    },
   },
 };
 </script>
@@ -78,10 +83,62 @@ export default {
 #nav a.router-link-exact-active {
   color: #661c05;
 }
+.fade-in-image {
+  animation: fadeIn 2s;
+  -webkit-animation: fadeIn 2s;
+  -moz-animation: fadeIn 2s;
+  -o-animation: fadeIn 2s;
+  -ms-animation: fadeIn 2s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 @media screen and (min-width: 768px) {
   .logo-title {
     font-size: 45px;
+    cursor: pointer;
   }
 }
 </style>

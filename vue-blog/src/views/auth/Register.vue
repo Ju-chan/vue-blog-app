@@ -2,7 +2,7 @@
   <div class="wrapper">
     <form @submit.prevent="onSubmit">
       <p class="msg">{{ message }}</p>
-      <h5>Register to start sharing you stories</h5>
+      <h5>Register to start sharing your stories</h5>
 
       <label for="name">Enter your name</label>
       <div class="input">
