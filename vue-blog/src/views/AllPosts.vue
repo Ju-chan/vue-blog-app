@@ -38,6 +38,7 @@ export default {
 h1 {
   font-family: 'Limelight', cursive;
   color: white;
+  max-width: 60%;
 }
 h6 {
   font-weight: 8;
